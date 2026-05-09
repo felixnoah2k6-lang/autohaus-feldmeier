@@ -1,0 +1,265 @@
+@import "tailwindcss";
+
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Brand */
+  --color-primary: #ffed00;
+  --color-primary-deep: #e6d200;
+  --color-on-primary: #000000;
+
+  /* Surface */
+  --color-canvas: #ffffff;
+  --color-surface-soft: #f7f7f7;
+  --color-surface-dark: #000000;
+  --color-surface-deep: #111111;
+
+  /* Hairlines */
+  --color-hairline: #f2f2f2;
+  --color-hairline-strong: #000000;
+  --color-divider-dark: rgba(255, 255, 255, 0.16);
+
+  /* Text */
+  --color-ink: #000000;
+  --color-body: #222222;
+  --color-charcoal: #333333;
+  --color-mute: #666666;
+  --color-ash: #8a8a8a;
+  --color-stone: #c4c4c4;
+  --color-on-dark: #ffffff;
+  --color-on-dark-mute: rgba(255, 255, 255, 0.72);
+
+  /* Semantic */
+  --color-error: #be6464;
+  --color-warning: #f0ad4e;
+  --color-success: #8dc572;
+  --color-info: #337ab7;
+
+  /* Border Radius */
+  --radius-xs: 2px;
+  --radius-none: 0px;
+  --radius-pill: 46px;
+  --radius-full: 9999px;
+  --radius: var(--radius-xs);
+
+  --background: var(--color-canvas);
+  --foreground: var(--color-ink);
+  --card: var(--color-canvas);
+  --card-foreground: var(--color-ink);
+  --popover: var(--color-canvas);
+  --popover-foreground: var(--color-ink);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-on-primary);
+  --secondary: var(--color-surface-soft);
+  --secondary-foreground: var(--color-ink);
+  --muted: var(--color-surface-soft);
+  --muted-foreground: var(--color-mute);
+  --accent: var(--color-surface-soft);
+  --accent-foreground: var(--color-ink);
+  --destructive: var(--color-error);
+  --destructive-foreground: #ffffff;
+  --border: var(--color-hairline-strong);
+  --input: var(--color-hairline-strong);
+  --ring: var(--color-ink);
+  --chart-1: hsl(12 76% 61%);
+  --chart-2: hsl(173 58% 39%);
+  --chart-3: hsl(197 37% 24%);
+  --chart-4: hsl(43 74% 66%);
+  --chart-5: hsl(27 87% 67%);
+}
+
+.dark {
+  --background: var(--color-surface-dark);
+  --foreground: var(--color-on-dark);
+  --card: var(--color-surface-dark);
+  --card-foreground: var(--color-on-dark);
+  --popover: var(--color-surface-dark);
+  --popover-foreground: var(--color-on-dark);
+  --primary: var(--color-primary);
+  --primary-foreground: var(--color-on-primary);
+  --secondary: var(--color-surface-deep);
+  --secondary-foreground: var(--color-on-dark);
+  --muted: var(--color-surface-deep);
+  --muted-foreground: var(--color-on-dark-mute);
+  --accent: var(--color-surface-deep);
+  --accent-foreground: var(--color-on-dark);
+  --destructive: var(--color-error);
+  --destructive-foreground: #ffffff;
+  --border: var(--color-divider-dark);
+  --input: var(--color-divider-dark);
+  --ring: var(--color-on-dark);
+  --chart-1: hsl(220 70% 50%);
+  --chart-2: hsl(160 60% 45%);
+  --chart-3: hsl(30 80% 55%);
+  --chart-4: hsl(280 65% 60%);
+  --chart-5: hsl(340 75% 55%);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Font Sizes */
+  /* We will use utility classes for sizes as requested, but also register them */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+    color: var(--color-body);
+  }
+}
+
+/* Typography styles matching the design system */
+.text-display-xl {
+  font-size: 56px;
+  line-height: 0.95;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-display-xl {
+    font-size: 40px;
+  }
+}
+
+.text-display-lg {
+  font-size: 40px;
+  line-height: 0.95;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-display-lg {
+    font-size: 32px;
+  }
+}
+
+.text-display-md {
+  font-size: 32px;
+  line-height: 0.95;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-display-md {
+    font-size: 26px;
+  }
+}
+
+.text-heading-lg {
+  font-size: 24px;
+  line-height: 0.95;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-heading-lg {
+    font-size: 22px;
+  }
+}
+
+.text-heading-md {
+  font-size: 20px;
+  line-height: 0.95;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-heading-md {
+    font-size: 18px;
+  }
+}
+
+.text-heading-sm {
+  font-size: 18px;
+  line-height: 1.0;
+  font-weight: 700;
+}
+@media (max-width: 767px) {
+  .text-heading-sm {
+    font-size: 16px;
+  }
+}
+
+.text-subtitle {
+  font-size: 19.2px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+@media (max-width: 767px) {
+  .text-subtitle {
+    font-size: 17px;
+  }
+}
+
+.text-body-lg {
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+@media (max-width: 767px) {
+  .text-body-lg {
+    font-size: 17px;
+  }
+}
+
+.text-body-md {
+  font-size: 16px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.text-body-sm {
+  font-size: 14px;
+  line-height: 1.57;
+  font-weight: 400;
+}
+
+.text-button-md {
+  font-size: 14.4px;
+  line-height: 1.0;
+  font-weight: 700;
+  letter-spacing: 0.144px;
+}
+
+.text-caption {
+  font-size: 12px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.text-overline {
+  font-size: 10px;
+  line-height: 1.45;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
